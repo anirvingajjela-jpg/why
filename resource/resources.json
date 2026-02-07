@@ -1,0 +1,74 @@
+[
+    {
+        "id": 0,
+        "name": "Food Bank of Delaware",
+        "description": "Providing nutritious foods to Delawareans in need while facilitating long-term solutions to hunger and poverty.",
+        "tags": ["service", "food", "volunteer"],
+        "location": "222 Lake Dr, Newark, DE 19702",
+        "url": "https://www.fbd.org",
+        "image": "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800"
+    },
+    {
+        "id": 1,
+        "name": "The Grand Opera House",
+        "description": "A pillar of the arts community for 140+ years, presenting live performances from symphony to comedy on Market St.",
+        "tags": ["arts", "events", "culture"],
+        "location": "818 N Market St, Wilmington, DE 19801",
+        "url": "https://www.thegrandwilmington.org",
+        "image": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800"
+    },
+    {
+        "id": 2,
+        "name": "Riverfront Wilmington",
+        "description": "The city's premier destination for dining, recreation, and greenery along the scenic Christina River.",
+        "tags": ["recreation", "parks", "dining"],
+        "location": "815 Justison St, Wilmington, DE 19801",
+        "url": "https://riverfrontwilm.com",
+        "image": "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=800"
+    },
+    {
+        "id": 3,
+    "name": "Delaware Art Museum",
+    "description": "Famous for its collection of British Pre-Raphaelite art and American illustration. A must-visit cultural hub.",
+    "tags": ["arts", "education", "museum"],
+    "location": "2301 Kentmere Pkwy, Wilmington, DE 19806",
+    "url": "https://delart.org",
+    "image": "https://images.unsplash.com/photo-1574352067721-72d5913bd35c?w=800"
+    },
+    {
+        "id": 4,
+        "name": "Wilmington Public Library",
+        "description": "Free access to information, digital resources, and community workshops in the heart of downtown.",
+        "tags": ["education", "service", "community"],
+        "location": "10 E 10th St, Wilmington, DE 19801",
+        "url": "https://wilmington.lib.de.us",
+        "image": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800"
+    },
+    {
+        "id": 5,
+        "name": "The Queen Wilmington",
+        "description": "An iconic historic theater turned live music venue, hosting local talent and international touring acts.",
+        "tags": ["music", "events", "nightlife"],
+        "location": "500 N Market St, Wilmington, DE 19801",
+        "url": "https://thequeenwilmington.com",
+        "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800"
+    },
+    {
+        "id": 6,
+        "name": "Sunday Breakfast Mission",
+        "description": "Serving the homeless and needy through food shelter and rehabilitation programs for decades.",
+        "tags": ["service", "shelter", "volunteer"],
+        "location": "110 N Poplar St, Wilmington, DE 19801",
+        "url": "https://sundaybreakfastmission.org",
+        "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800"
+    },
+    {
+        "id": 7,
+        "name": "Stateline Motocross",
+        "description": "An adrenaline-pumping outdoor park for riders and spectators just outside the city center.",
+        "tags": ["sports", "recreation", "outdoor"],
+        "location": "Wilmington, DE Outskirts",
+        "url": "http://statelinemx.com",
+        "image": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800"
+    }
+]

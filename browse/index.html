@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory | anaCalypto</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .event-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .filtered-event {
+            opacity: 0; 
+            animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .filtered-event:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .search-bar-wrap {
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(to bottom, #ffffff, #f4f7f6);
+        }
+
+        #directory-search {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #directory-search:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html"><span>ana</span><h1>Calypto</h1></a></div>
+            <ul id="navbar-items">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color: var(--accent);">Directory</a></li>
+                <li><a href="../events.html">Events</a></li>
+                <li><a href="../login.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search-bar-wrap">
+        <h1 style="margin:0; font-size: 2.5rem;">Wilmington Resource Hub</h1>
+        <p style="color: #718096; margin-top: 10px;">Find organizations, help, and entertainment in the 302.</p>
+        <div style="margin-top: 30px;">
+            <input type="text" id="directory-search" placeholder="Search by name, tag, or keyword...">
+        </div>
+    </div>
+
+    <main class="container">
+        <div id="event-container" class="event-container">
+            </div>
+        <div id="no-results" style="display:none; text-align:center; padding: 50px; color: #a0aec0;">
+            <h3>No resources found matching that search.</h3>
+        </div>
+    </main>
+
+    <script>
+        async function initDirectory() {
+            const container = document.getElementById('event-container');
+            const searchInput = document.getElementById('directory-search');
+            const noResults = document.getElementById('no-results');
+
+            try {
+                const response = await fetch('../resource/resources.json');
+                const data = await response.json();
+
+                function render(items) {
+                    container.innerHTML = '';
+                    if (items.length === 0) {
+                        noResults.style.display = 'block';
+                        return;
+                    }
+                    noResults.style.display = 'none';
+
+                    items.forEach((item, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'filtered-event';
+                        
+                        card.style.animationDelay = `${index * 0.08}s`;
+                        
+                        card.innerHTML = `
+                            <img src="${item.image}" class="filev-img" style="width:100%; height:180px; object-fit:cover;" alt="${item.name}">
+                            <div class="caption" style="padding: 20px;">
+                                <span style="font-size:10px; font-weight:bold; color:var(--accent); text-transform:uppercase;">${item.tags[0]}</span>
+                                <h4 style="margin: 8px 0;">${item.name}</h4>
+                                <p style="font-size:13px; color:#4a5568; line-height:1.4;">${item.description}</p>
+                                <a href="../resource/index.html?id=${item.id}" class="cta-primary" style="display:inline-block; margin-top:15px; font-size:12px; padding: 8px 15px;">Learn More</a>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+
+                render(data);
+
+                
+                searchInput.addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    const filtered = data.filter(item => 
+                        item.name.toLowerCase().includes(term) || 
+                        item.tags.some(t => t.toLowerCase().includes(term)) ||
+                        item.description.toLowerCase().includes(term)
+                    );
+                    render(filtered);
+                });
+
+            } catch (err) {
+                container.innerHTML = "<p>Failed to load directory data.</p>";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initDirectory);
+    </script>
+</body>
+</html>
