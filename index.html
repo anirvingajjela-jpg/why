@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anaCalypto | Wilmington Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><span>ana</span><h1>Calypto</h1></a></div>
+            <ul id="navbar-items">
+                <li><a href="browse/index.html">Directory</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Wilmington Reimagined.</h2>
+            <p>Discover local resources, upcoming events, and ways to give back.</p>
+            <div class="hero-btns">
+                <a href="browse/index.html" class="cta-primary">Browse Directory</a>
+                <button onclick="surpriseMe()" class="cta-secondary">Surprise Me</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h3 class="section-title">Community Highlights</h3>
+        <div id="event-container" class="event-container">
+            </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script src="fetchJSON.js"></script>
+</body>
+</html>
